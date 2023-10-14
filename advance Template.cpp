@@ -215,46 +215,17 @@ void iofile(){
         freopen("output2.txt", "w", stdout);
     #endif
 }
+double dist(double x1, double y1, double x2, double y2) {
+    return sqrt(((x1 - x2) * (x1 - x2)) + ((y1 - y2) * (y1 - y2)));
+}
 //-------------------------------------------------------------------------
  /*TO GET SOMETHING YOU NEVER HAD YOU HAVE TO DO SOMETHING YOU NEVER DID*/
 //-------------------------------------------------------------------------
 
-double dist(double x1, double y1, double x2, double y2) {
-    return sqrt(((x1 - x2) * (x1 - x2)) + ((y1 - y2) * (y1 - y2)));
-}
 
-
-bool insideCircle(double Px, double Py, double Ax, double Ay, double Bx, double By, double w) {
-    double dist1 = dist(0.0, 0.0, Ax, Ay);
-    double dist2 = dist(0.0, 0.0, Bx, By);
-
-    double dist3 = dist(Px, Py, Ax, Ay);
-    double dist4 = dist(Px, Py, Bx, By);
-
-    double dist5 = dist(Ax, Ay, Bx, By);
-    
-    if(dist1 <= w && dist3 <= w) return true;
-    else if(dist2 <=w && dist4 <= w) return true;
-    else if((dist1 <= w || dist2 <= w) && (dist3 <= w || dist4 <= w) && (dist5 <= w*(double)2)) return true;
-    else return false;
-}
 
 void solve(){
-    double px, py; cin>>px>>py;
-    double ax, ay; cin>>ax>>ay;
-    double bx, by; cin>>bx>>by;
-
-
-    double l = 0, r = 10000, ans = 10000;
-    while(r-l>1e-6){
-        double m = (l+r)/2;
-        if(insideCircle(px, py, ax, ay, bx, by, m)){
-            ans = m;
-            r = m;
-        }
-        else l = m;
-    }
-    cout<<fixed<<setprecision(6)<<ans<<endl;
+    //
 }
 
 
